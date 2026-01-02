@@ -14,126 +14,56 @@
   --muted:#6b7280;
   --radius:14px;
 }
-
 *{box-sizing:border-box;}
-
 body{
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-  margin:0;
-  padding:20px;
+  margin:0;padding:20px;
   background:linear-gradient(180deg,#f4f8ff 0%,#fff 60%);
   min-height:100vh;
   display:flex;
   justify-content:center;
-  align-items:flex-start;
   color:#0f172a;
 }
-
-.stage{width:100%;max-width:900px;margin:auto;}
-
+.stage{width:100%;max-width:900px;}
 .hero{text-align:center;margin-bottom:20px;}
 .hero h1{
-  margin:0;
-  font-size:28px;
-  font-weight:800;
+  margin:0;font-size:28px;font-weight:800;
   background:linear-gradient(90deg,var(--grad1),var(--grad2));
-  -webkit-background-clip:text;
-  color:transparent;
+  -webkit-background-clip:text;color:transparent;
 }
 .hero p{margin-top:8px;font-size:14px;color:var(--muted);}
-
 .card{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:26px;
+  background:#fff;border-radius:14px;padding:26px;
   box-shadow:0 12px 40px rgba(0,0,0,.08);
   border-top:6px solid;
   border-image:linear-gradient(90deg,var(--grad1),var(--grad2)) 1;
 }
-
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .full{grid-column:1/-1;}
-.section-title{
-  grid-column:1/-1;
-  font-size:15px;
-  font-weight:700;
-  margin:6px 0 8px;
-}
-
-.field label{
-  display:block;
-  margin-bottom:6px;
-  font-weight:600;
-  font-size:14px;
-}
+.section-title{grid-column:1/-1;font-weight:700;margin-top:8px;}
 .input-wrap{
-  background:#fbfbff;
-  border:1px solid #e6e9ef;
-  padding:12px;
-  border-radius:10px;
+  background:#fbfbff;border:1px solid #e6e9ef;
+  padding:12px;border-radius:10px;
 }
-.input-wrap input,
-.input-wrap select{
-  width:100%;
-  border:none;
-  outline:none;
-  font-size:15px;
-  background:transparent;
-}
-
-.file-preview{
-  margin-top:12px;
-  background:#f9fffb;
-  border:1px dashed #d6e8d9;
-  padding:12px;
-  border-radius:10px;
-}
-
+input,select{width:100%;border:none;outline:none;background:transparent;font-size:15px;}
 .btn{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
+  width:100%;padding:14px;border-radius:12px;
   background:linear-gradient(90deg,var(--grad1),var(--grad2));
-  color:white;
-  font-size:16px;
-  font-weight:700;
-  border:none;
-  cursor:pointer;
+  color:white;font-size:16px;font-weight:700;border:none;cursor:pointer;
 }
-
 .spinner{
-  width:18px;height:18px;
-  border:2px solid rgba(255,255,255,.4);
-  border-top-color:#fff;
-  border-radius:50%;
-  animation:spin .8s linear infinite;
-  display:inline-block;
-  margin-left:8px;
+  width:18px;height:18px;border:2px solid rgba(255,255,255,.4);
+  border-top-color:#fff;border-radius:50%;
+  animation:spin .8s linear infinite;display:none;margin-left:8px;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-
 .modal-backdrop{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  pointer-events:none;
+  position:fixed;inset:0;background:rgba(0,0,0,.45);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
 }
-.modal-backdrop.show{
-  opacity:1;
-  pointer-events:auto;
-}
-.modal{
-  background:#fff;
-  width:90%;
-  max-width:420px;
-  padding:22px;
-  border-radius:14px;
-  text-align:center;
-}
+.modal-backdrop.show{opacity:1;pointer-events:auto;}
+.modal{background:#fff;padding:22px;border-radius:14px;text-align:center;}
 </style>
 </head>
 
@@ -149,21 +79,20 @@ body{
       <div class="grid">
 
         <div class="section-title">Personal Info</div>
-        <div class="field"><label>Full Name</label><div class="input-wrap"><input id="name" required></div></div>
-        <div class="field"><label>Email</label><div class="input-wrap"><input id="email" type="email" required></div></div>
-        <div class="field"><label>Phone</label><div class="input-wrap"><input id="phone" required></div></div>
-        <div class="field"><label>Location</label><div class="input-wrap"><input id="location" required></div></div>
+        <div><label>Full Name</label><div class="input-wrap"><input id="name" required></div></div>
+        <div><label>Email</label><div class="input-wrap"><input id="email" type="email" required></div></div>
+        <div><label>Phone</label><div class="input-wrap"><input id="phone" required></div></div>
+        <div><label>Location</label><div class="input-wrap"><input id="location" required></div></div>
 
         <div class="section-title">Experience</div>
-        <div class="field"><label>Total Experience (Years)</label><div class="input-wrap"><input id="total_experience" type="number" required></div></div>
-        <div class="field"><label>Relevant Experience (Years)</label><div class="input-wrap"><input id="relevant_experience" type="number" required></div></div>
-        <div class="field full"><label>Skills</label><div class="input-wrap"><input id="skills" required></div></div>
+        <div><label>Total Experience</label><div class="input-wrap"><input id="total_experience" type="number" required></div></div>
+        <div><label>Relevant Experience</label><div class="input-wrap"><input id="relevant_experience" type="number" required></div></div>
+        <div class="full"><label>Skills</label><div class="input-wrap"><input id="skills" required></div></div>
 
         <div class="section-title">Visa Status</div>
-        <div class="field full">
-          <label>Current Visa / Work Authorization</label>
+        <div class="full">
           <div class="input-wrap">
-            <select id="visa_status" required>
+            <select id="visa" required>
               <option value="">Select Visa Status</option>
               <option>EU Citizen / Permanent Resident</option>
               <option>Valid EU Work Permit</option>
@@ -175,15 +104,12 @@ body{
           </div>
         </div>
 
-        <div class="section-title full">Resume</div>
-        <div class="field full">
-          <input id="file" type="file" accept=".pdf,.doc,.docx" required>
-          <div id="previewArea"></div>
-        </div>
+        <div class="section-title">Resume</div>
+        <div class="full"><input id="file" type="file" accept=".pdf,.doc,.docx" required></div>
 
         <div class="full">
-          <button class="btn" id="submitBtn">
-            Submit Application <span id="spinner" class="spinner" style="display:none"></span>
+          <button class="btn">
+            Submit Application <span class="spinner" id="spinner"></span>
           </button>
         </div>
 
@@ -201,52 +127,47 @@ body{
 </div>
 
 <script>
-const scriptURL="https://script.google.com/macros/s/AKfycbzSJRsAj_VDnMqnHWjZuPeUk33xo0w87TVqP1dynyMNK0Bq4FmhSxnxGxO3VoKHO9RQ/exec";
-const form=document.getElementById("uploadForm");
-const fileInput=document.getElementById("file");
-const preview=document.getElementById("previewArea");
-const modal=document.getElementById("modal");
-const spinner=document.getElementById("spinner");
-const submitBtn=document.getElementById("submitBtn");
+const scriptURL = "https://script.google.com/macros/s/AKfycbzSJRsAj_VDnMqnHWjZuPeUk33xo0w87TVqP1dynyMNK0Bq4FmhSxnxGxO3VoKHO9RQ/exec";
 
-fileInput.onchange=()=>{
-  const f=fileInput.files[0];
-  if(!f)return;
-  preview.innerHTML=`<div class="file-preview">${f.name}</div>`;
-};
+const form = document.getElementById("uploadForm");
+const spinner = document.getElementById("spinner");
+const modal = document.getElementById("modal");
 
-form.onsubmit=async e=>{
+form.addEventListener("submit", e => {
   e.preventDefault();
-  const f=fileInput.files[0];
-  if(!f)return alert("Attach resume");
-  spinner.style.display="inline-block";
-  submitBtn.disabled=true;
+  const file = document.getElementById("file").files[0];
+  if (!file) return alert("Please upload resume");
 
-  const reader=new FileReader();
-  reader.onload=async()=>{
-    const fd=new FormData();
-    fd.append("filename",f.name);
-    fd.append("filedata",reader.result.split(",")[1]);
-    fd.append("data",JSON.stringify({
-      name:name.value,
-      email:email.value,
-      phone:phone.value,
-      location:location.value,
-      total_experience:total_experience.value,
-      relevant_experience:relevant_experience.value,
-      skills:skills.value,
-      visa_status:visa_status.value
+  spinner.style.display = "inline-block";
+
+  const reader = new FileReader();
+  reader.onload = async () => {
+    const fd = new FormData();
+    fd.append("filename", file.name);
+    fd.append("mimetype", file.type);
+    fd.append("filedata", reader.result.split(",")[1]);
+    fd.append("data", JSON.stringify({
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      location: document.getElementById("location").value,
+      total_experience: document.getElementById("total_experience").value,
+      relevant_experience: document.getElementById("relevant_experience").value,
+      skills: document.getElementById("skills").value,
+      visa: document.getElementById("visa").value
     }));
-    await fetch(scriptURL,{method:"POST",body:fd});
+
+    await fetch(scriptURL, { method: "POST", body: fd });
+    spinner.style.display = "none";
     modal.classList.add("show");
-    spinner.style.display="none";
-    submitBtn.disabled=false;
     form.reset();
   };
-  reader.readAsDataURL(f);
-};
+  reader.readAsDataURL(file);
+});
 
-function closeModal(){modal.classList.remove("show");}
+function closeModal() {
+  modal.classList.remove("show");
+}
 </script>
 
 </body>
